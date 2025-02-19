@@ -11,10 +11,10 @@ async function runAPI(location){
 
 
 function initQuery(){
-    const submit = document.querySelector("#submit")
-    submit.addEventListener("click", (event)=>{
+    const submit = document.querySelector("#location")
+    submit.addEventListener("submit", (event)=>{
         event.preventDefault()
-        const input = document.getElementById("location")
+        const input = document.getElementById("search")
         let location = input.value
         runAPI(location)
     })

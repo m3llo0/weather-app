@@ -1,11 +1,73 @@
 *{
-    background-color: black;
-}
-
-#submit{
-    background-color: pink
+    background-color: #0d0d0d
 }
 
 #location{
-    color:wheat
+    color:wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#submit{
+    width: 40px;
+    height: 40px;
+    cursor:pointer;
+}
+
+#search{
+    color: wheat;
+    width: 400px;
+    height: 40px;
+    border: pink solid 2px;
+    border-radius: 10px;
+    transition: all 0.1s ease;
+    text-indent: 15px;
+}
+
+#search::placeholder{
+    font-style: italic;
+}
+
+.info{
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 25px;
+    color: white;
+    gap: 25px;
+}
+
+.today, .highlights, .forecast{
+    background-color: #2b2d30;
+}
+
+.today{
+    grid-row: 1;
+    grid-column: 1;
+    width: 550px;
+    height: 350px;
+    padding: 20px;
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.highlights{
+    grid-row: 1;
+    grid-column: 2;
+    width: 550px;
+    height: 350px;
+    padding: 20px;
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.forecast{
+    grid-row: 2;
+    grid-column: 1/2;
 }
