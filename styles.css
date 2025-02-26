@@ -66,6 +66,22 @@ body{
     display: inline-block;
 }
 
+.icon-med{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+#ppt, #wind{
+    margin-left: 15px;
+}
+
+.icon-big{
+    width: 150px;
+    height: auto;
+}
+
 #today{
     grid-row: 1;
     grid-column: 1;
@@ -87,6 +103,12 @@ body{
     justify-self: center;
     align-self: center;
     border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    font-weight: bold;
 }
 
 #forecast{
@@ -100,10 +122,6 @@ h1{
 
 h2{
     font-size: 20px;
-}
-img.weather-pic{
-    width: 150px;
-    height: auto;
 }
 
 #datetime{
