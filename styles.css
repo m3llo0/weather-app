@@ -43,7 +43,6 @@ body{
     grid-template-columns: 1fr 1fr;
     margin-top: 25px;
     color: white;
-    gap: 25px;
 }
 
 .icon-small{
