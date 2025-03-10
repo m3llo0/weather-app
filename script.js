@@ -51,10 +51,25 @@ function createForecast(){
 createForecast()
 
 function updateUI(){
+
+    const today = new Date()
+    const day = today.getDate()
+    const month = today.toLocaleString('en-US', { month: 'short' })
+    const year = today.getFullYear()
+    const dayOfWeek = today.toLocaleString('en-US', { weekday: 'long' });
+    const formattedDate = `${day} ${month}, ${year}`
+
     const elements = [
         {selector:"p.location", text:query},
         {selector:"#temp h1", text:`${weatherInstance.temp}°C`},
-        {selector: "#temp h2", text:`Feels like ${weatherInstance.feelslike}°C`}
+        {selector: "#temp h2", text:`Feels like ${weatherInstance.feelslike}°C`},
+        {selector: "#description", text: weatherInstance.description},
+        {selector: ".wind.speed p", text: `Wind Speed: ${weatherInstance.windspeed}km/h`},
+        {selector: ".humidity p", text: `Humidity: ${weatherInstance.humidity}%`},
+        {selector: ".uv.index p", text: `UV Index: ${weatherInstance.uvindex}`},
+        {selector: ".ppt p", text: `Chance of Rain: ${weatherInstance.precip}%`},
+        {selector: "#datetime h1", text: dayOfWeek},
+        {selector: "#datetime h2", text: formattedDate}
     ]
 
     elements.forEach(({selector, text}) => {
@@ -63,5 +78,6 @@ function updateUI(){
             element.textContent = text
         }
     })
+
 }
 
