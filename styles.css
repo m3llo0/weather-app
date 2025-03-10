@@ -127,7 +127,8 @@ body{
     justify-self: center;
     align-self: center;
     display: grid;
-    grid-template-columns: 10;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 1fr;
 }
 
 h1{
