@@ -1,3 +1,6 @@
+let query = ""
+let weatherInstance = null
+
 class Weather {
     constructor(data){
         this.temp = data.days[0].temp
@@ -15,22 +18,22 @@ class Weather {
             const response = await fetch(url)
             let data = await response.json()
             const weatherInstance = new Weather(data)
-            console.log(weatherInstance.description)
             return weatherInstance
         } catch(error){
             console.error(error)
         }
     }
-    
+
 }
 
 function initQuery(){
     const submit = document.querySelector("#location")
-    submit.addEventListener("submit", (event)=>{
+    submit.addEventListener("submit", async (event)=>{
         event.preventDefault()
         const input = document.getElementById("search")
-        let location = input.value
-        Weather.runAPI(location)
+        query = input.value
+        weatherInstance = await Weather.runAPI(query)
+        updateUI()
     })
 }
 
@@ -47,4 +50,18 @@ function createForecast(){
 
 createForecast()
 
+function updateUI(){
+    const elements = [
+        {selector:"p.location", text:query},
+        {selector:"#temp h1", text:`${weatherInstance.temp}°C`},
+        {selector: "#temp h2", text:`Feels like ${weatherInstance.feelslike}°C`}
+    ]
+
+    elements.forEach(({selector, text}) => {
+        const element = document.querySelector(selector)
+        if (element){
+            element.textContent = text
+        }
+    })
+}
 
