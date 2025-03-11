@@ -1,4 +1,4 @@
-let query = ""
+let query = "Singapore"
 let weatherInstance = null
 
 class Weather {
@@ -26,6 +26,11 @@ class Weather {
 
 }
 
+document.addEventListener("DOMContentLoaded", async function defaultWeather(){
+    weatherInstance= await Weather.runAPI(query)
+    updateUI()
+})
+    
 function initQuery(){
     const submit = document.querySelector("#location")
     submit.addEventListener("submit", async (event)=>{
@@ -38,17 +43,6 @@ function initQuery(){
 }
 
 initQuery()
-
-function createForecast(){
-    const box = document.querySelector("#forecast")
-    for (let i=0; i<10; i++){
-        const forecast = document.createElement("div")
-        forecast.className = "daily"
-        box.appendChild(forecast)
-    }
-}
-
-createForecast()
 
 function updateUI(){
 
