@@ -1,2 +1,2 @@
 # weather-app
- 
+This project has been an interesting one where i saw the magic of APIs and how they work in our daily lives by being conductors of information. Although I was stuck on this project for a long while due to my busy schedule and distractions, I have finally managed to complete the project albeit being kind of basic and lacking any fancy bells and whistles (I was lazy to make a 10-day forecast feature even though it was planned for).
