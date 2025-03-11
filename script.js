@@ -10,6 +10,7 @@ class Weather {
         this.uvindex = data.days[0].uvindex
         this.precip = data.days[0].precipprob
         this.description = data.days[0].description
+        this.conditions = data.days[0].conditions
     }
 
     static async runAPI(location){
@@ -29,6 +30,7 @@ class Weather {
 document.addEventListener("DOMContentLoaded", async function defaultWeather(){
     weatherInstance= await Weather.runAPI(query)
     updateUI()
+    updateImage()
 })
     
 function initQuery(){
@@ -39,10 +41,30 @@ function initQuery(){
         query = input.value
         weatherInstance = await Weather.runAPI(query)
         updateUI()
+        updateImage()
     })
 }
-
 initQuery()
+
+function updateImage(){
+    const image = document.querySelector(".weather-pic img")
+    const weatherImages = {
+        "rain" : "assets/rainy.png",
+        "cloudy": "assets/cloudy.png",
+        "thunderstorm": "assets/thunderstorm.png",
+        "clear": "assets/sunny.png",
+        "partially cloudy": "assets/partially-cloudy.png",
+        "rain, partially cloudy": "assets/sun-rain.png"
+    }
+    image.src = "assets/cloudy.png"
+    for(let key of Object.keys(weatherImages)){
+        if(weatherInstance.conditions.toLowerCase().includes(key)){
+            image.src = weatherImages[key]
+            return
+        }
+    }
+}
+
 
 function updateUI(){
 
